@@ -1,10 +1,5 @@
-name: 'Push Bot'
-description: 'Sends a nice PR message to your discord server'
-inputs:
-  channel-name:  # id of input
-    description: 'Channel you want the message to be sent'
-    required: true
-    default: 'general'
+name: "Push Bot"
+description: "Sends a nice PR message to your discord server"
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: "node12"
+  main: "index.js"
