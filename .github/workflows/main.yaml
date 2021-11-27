@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  push_bot_job:
+    runs-on: ubuntu-latest
+    name: A job to send PR message to Discord
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Push Bot send step
+        uses: ./ # Uses an action in the root directory
+        id: push-bot
+        with:
+          channel-name: "general"
+          bot-token: ${{ secrets.BotSecret }}
