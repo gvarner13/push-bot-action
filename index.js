@@ -1,4 +1,4 @@
-const { Client, Intents } = require("discord.js");
+// const { Client, Intents } = require("discord.js");
 const core = require("@actions/core");
 const github = require("@actions/github");
 
@@ -30,9 +30,9 @@ const createMessage = (channelId, gitHubPayload) => ({
   ],
 });
 
-const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
-});
+// const client = new Client({
+//   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+// });
 
 const gitHubPayload = {
   user: "gvarner13",
@@ -45,15 +45,15 @@ try {
   const token = core.getInput("bot-token");
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
-  client.once("ready", () => {
-    const { id: channelId } = client.channels.cache.find(
-      (channel) => channel.name === channelName
-    );
-    const channel = client.channels.cache.get(channelId);
+  // client.once("ready", () => {
+  //   const { id: channelId } = client.channels.cache.find(
+  //     (channel) => channel.name === channelName
+  //   );
+  //   const channel = client.channels.cache.get(channelId);
 
-    channel.send(createMessage(channelId, gitHubPayload));
-  });
-  client.login(token);
+  //   channel.send(createMessage(channelId, gitHubPayload));
+  // });
+  // client.login(token);
 } catch (error) {
   core.setFailed(error.message);
 }
