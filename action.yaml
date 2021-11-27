@@ -1,5 +1,14 @@
 name: "Push Bot"
 description: "Sends a nice PR message to your discord server"
+inputs:
+  channel-name: # id of input
+    description: "Channel you want the message to be sent"
+    required: true
+    default: "general"
+  bot-token:
+    description: "bot token"
+    required: true
+    default: "token"
 runs:
   using: "node12"
   main: "index.js"
