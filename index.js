@@ -45,8 +45,9 @@ try {
     );
     const channel = client.channels.cache.get(channelId);
 
-    channel.send(createMessage(channelId, gitHubPayload));
-    // client.destroy();
+    channel
+      .send(createMessage(channelId, gitHubPayload))
+      .then(() => client.destroy());
   });
   client.login(token);
 } catch (error) {
